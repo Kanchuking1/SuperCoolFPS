@@ -66,7 +66,7 @@ public class TimeManager : MonoBehaviour
 
     public void EventTrigger()
     {
-        Debug.Log("Success");
+        //Debug.Log("Success");
         StartCoroutine(EventTime());
     }
 

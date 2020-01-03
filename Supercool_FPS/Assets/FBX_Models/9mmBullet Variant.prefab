@@ -152,6 +152,7 @@ MonoBehaviour:
   speed: 10
   damage: 0
   hitforce: 0
+  thresholdForBulletDestruction: 100
 --- !u!1001 &2246089567224793210
 PrefabInstance:
   m_ObjectHideFlags: 0

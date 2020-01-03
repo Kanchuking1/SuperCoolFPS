@@ -21,7 +21,7 @@ public class Shell : MonoBehaviour
         b = GameObject.FindGameObjectWithTag("Player");
         if (b != null)
         {
-            Debug.Log("FFFFFFFUCK");
+            //Debug.Log("FFFFFFFUCK");
             bullet = b.GetComponent<Bullet>();
         }
         rb = GetComponent<Rigidbody>();

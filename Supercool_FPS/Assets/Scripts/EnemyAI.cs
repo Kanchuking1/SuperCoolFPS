@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
             FacePlayer(playerPos);
         }
 
-        if(muzzFlash.active && (Time.time - t)>=0.01f)
+        if(muzzFlash.activeSelf && (Time.time - t)>=0.01f)
         {
             muzzFlash.SetActive(false);
         }
@@ -74,5 +74,11 @@ public class EnemyAI : MonoBehaviour
             Shoot(false);
     }
 
-    
+    private bool ConditionForShootingMet()
+    {
+        bool playerSeen = true;
+        // If the player is in hearing range and the makes a sound
+        // If the player is in sight
+        return playerSeen;
+    }
 }

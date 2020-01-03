@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
@@ -48,7 +47,7 @@ public class GameOver : MonoBehaviour
         {
             gameOverScreen.SetActive(true);
             crosshair.enabled = false;
-            Debug.Log("works" + Mathf.Lerp(20f, 100f, 0.5f));
+            //Debug.Log("works" + Mathf.Lerp(20f, 100f, 0.5f));
             tempColor = Color.Lerp(tempColor, deadColorFilter, Time.deltaTime * 32f);
             tempTextAlpha = Color.Lerp(tempTextAlpha, finalTextAlpha, Time.deltaTime * 32f);
             coValue = Mathf.Lerp(coValue, 64f, Time.deltaTime * 32f);
@@ -71,10 +70,15 @@ public class GameOver : MonoBehaviour
         {
             buttons[i].GetComponent<Text>().color = alpha;
         }
-
     }
+
+    public void Replay()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     void PauseMenu()
     {
-
+        //TODO
     }
 }

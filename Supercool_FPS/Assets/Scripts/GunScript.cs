@@ -15,12 +15,6 @@ public class GunScript : MonoBehaviour
         Throw(true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Release()
     {
         transform.parent = null;

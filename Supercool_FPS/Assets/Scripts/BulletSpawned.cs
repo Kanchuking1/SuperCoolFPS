@@ -11,6 +11,7 @@ public class BulletSpawned : MonoBehaviour
     Camera cam;
     public int damage;
     public float hitforce;
+    public float thresholdForBulletDestruction;
 
     Bullet bull;
     TimeManager time;
@@ -22,17 +23,11 @@ public class BulletSpawned : MonoBehaviour
         time = FindObjectOfType<TimeManager>();
     }
 
-
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Instantiate(deathParticle,transform.position,transform.rotation);
+            GameObject PEffect = Instantiate(deathParticle,transform.position,transform.rotation);
             collision.gameObject.GetComponentInParent<Death>().die();
             Debug.Log("LeftLeg");
             collision.gameObject.GetComponent<Rigidbody>().AddForceAtPosition(rb.velocity.normalized * 60f, collision.transform.position, ForceMode.Impulse);
@@ -40,6 +35,14 @@ public class BulletSpawned : MonoBehaviour
         }
 
         Destroy(this.gameObject);
+    }
+
+    private void Update()
+    {
+        if (gameObject.transform.position.magnitude > thresholdForBulletDestruction)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 }
